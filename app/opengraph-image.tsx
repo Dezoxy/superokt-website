@@ -3,6 +3,9 @@ import { ImageResponse } from "next/og"
 export const alt = "superokt — Simple, practical IT systems for businesses"
 export const size = { width: 1200, height: 630 }
 export const contentType = "image/png"
+// Required so the generated OG image is emitted as a static file under
+// `output: export` (mandatory in Next 15+, harmless on 14).
+export const dynamic = "force-static"
 
 const mark = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
   <g stroke="#404040" stroke-width="1.8" stroke-linecap="round">

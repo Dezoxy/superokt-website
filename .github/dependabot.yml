@@ -6,8 +6,13 @@ updates:
       interval: weekly
     open-pull-requests-limit: 5
     groups:
-      dependencies:
+      # Batch routine minor + patch bumps into a single PR.
+      minor-and-patch:
         patterns: ["*"]
+        update-types: ["minor", "patch"]
+    # Major updates (e.g. Next 14 -> 16, React 18 -> 19) are intentionally NOT
+    # grouped — they arrive as separate PRs so framework jumps can be reviewed
+    # and tested deliberately instead of being auto-bundled with patches.
   - package-ecosystem: github-actions
     directory: "/"
     schedule:
