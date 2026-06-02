@@ -1,0 +1,12 @@
+# Cloudflare Pages headers. https://developers.cloudflare.com/pages/configuration/headers/
+
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: DENY
+
+# The generated OG image has no file extension; pin its content type so social
+# scrapers (Slack, LinkedIn, Facebook, etc.) render it.
+/opengraph-image
+  Content-Type: image/png
+  Cache-Control: public, max-age=86400

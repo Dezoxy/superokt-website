@@ -1,0 +1,8 @@
+name = "superokt-website"
+compatibility_date = "2026-06-01"
+
+# Static site served via Cloudflare Workers Static Assets (the contents of ./out,
+# produced by `next build` with output: "export"). No Worker script — assets only.
+[assets]
+directory = "./out"
+not_found_handling = "404-page"

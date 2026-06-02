@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo,
+    monospace;
+
+  --color-base: #f6f1e8;
+  --color-line: #e7e0d3;
+  --color-accent: #2a52c9;
+  --color-accent-strong: #1e3d99;
+}
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-base);
+  color: #1c1917;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Fixed grid backdrop: stays put while content scrolls over it. Rendered as a
+   pinned layer behind all content (cheaper and smoother than
+   background-attachment: fixed, which is janky on mobile/iOS). */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -10;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, rgba(60, 48, 34, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(60, 48, 34, 0.05) 1px, transparent 1px);
+  background-size: 80px 80px;
+  -webkit-mask-image: radial-gradient(
+    ellipse 100% 90% at 50% 30%,
+    #000 60%,
+    transparent 100%
+  );
+  mask-image: radial-gradient(
+    ellipse 100% 90% at 50% 30%,
+    #000 60%,
+    transparent 100%
+  );
+}
+
+::selection {
+  background-color: rgba(42, 82, 201, 0.14);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
